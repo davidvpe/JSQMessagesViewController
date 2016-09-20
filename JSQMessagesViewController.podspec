@@ -17,15 +17,11 @@ Pod::Spec.new do |s|
 	s.source = { :git => 'https://github.com/jessesquires/JSQMessagesViewController.git', :tag => s.version }
 	s.source_files = 'JSQMessagesViewController/**/*.{h,m}'
 
-	s.resources = ['JSQMessagesViewController/Assets/JSQMessagesAssets.bundle', 'JSQMessagesViewController/**/*.{xib}']
+    s.resource_bundle = {'JSQMessagesAssets' => 'JSQMessagesViewController/Assets/JSQMessagesAssets.bundle/*.lproj']
 
 	s.frameworks = 'QuartzCore', 'CoreGraphics', 'CoreLocation', 'MapKit', 'AVFoundation'
 	s.requires_arc = true
 
 	s.dependency 'JSQSystemSoundPlayer', '~> 2.0.1'
 
-    s.subspec "es" do |es|
-        es.resources      = 'JSQMessagesViewController/Assets/JSQMessagesAssets.bundle/es.lproj'
-        es.preserve_paths = 'JSQMessagesViewController/Assets/JSQMessagesAssets.bundle/es.lproj'
-    end
 end
