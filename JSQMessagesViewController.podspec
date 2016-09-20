@@ -23,4 +23,9 @@ Pod::Spec.new do |s|
 	s.requires_arc = true
 
 	s.dependency 'JSQSystemSoundPlayer', '~> 2.0.1'
+
+    l.subspec "es" do |es|
+        es.resources      = 'JSQMessagesViewController/Assets/JSQMessagesAssets.bundle/es.lproj'
+        es.preserve_paths = 'JSQMessagesViewController/Assets/JSQMessagesAssets.bundle/es.lproj'
+    end
 end
