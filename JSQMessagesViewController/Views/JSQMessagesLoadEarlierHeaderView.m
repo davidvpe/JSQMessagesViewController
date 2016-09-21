@@ -72,10 +72,10 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     
     [self.loadButton.layer setMasksToBounds:NO];
     
-    self.loadButton.layer.shadowColor = [UIColor blackColor].CGColor;
-    self.loadButton.layer.shadowOpacity = 0.8;
-    self.loadButton.layer.shadowRadius = 5;
-    self.loadButton.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
+//    self.loadButton.layer.shadowColor = [UIColor blackColor].CGColor;
+//    self.loadButton.layer.shadowOpacity = 0.8;
+//    self.loadButton.layer.shadowRadius = 5;
+//    self.loadButton.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
     
     self.loadButton.center = self.center;
     
