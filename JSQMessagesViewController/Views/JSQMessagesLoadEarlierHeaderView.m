@@ -62,9 +62,6 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     [self.loadButton setBackgroundColor:[UIColor colorWithRed:93/255.0 green:159/255.0 blue:240/255.0 alpha:1]];
     self.loadButton.layer.cornerRadius = self.loadButton.frame.size.height/2;
     
-    [self.loadButton sizeToFit];
-    
-    
     [self.loadButton.layer setMasksToBounds:NO];
     
     self.loadButton.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -76,6 +73,8 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     
     
     self.loadButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    [self.loadButton sizeToFit];
 }
 
 - (void)dealloc
