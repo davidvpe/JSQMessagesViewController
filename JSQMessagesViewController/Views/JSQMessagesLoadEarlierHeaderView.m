@@ -22,7 +22,7 @@
 #import "NSBundle+JSQMessages.h"
 
 
-const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 45.0f;
+const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
 
 
 @interface JSQMessagesLoadEarlierHeaderView ()
@@ -63,6 +63,15 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 45.0f;
     self.loadButton.layer.cornerRadius = self.loadButton.frame.size.height/2;
     
     [self.loadButton sizeToFit];
+    
+    
+    [self.loadButton.layer setMasksToBounds:NO];
+    
+    self.loadButton.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.loadButton.layer.shadowOpacity = 0.8;
+    self.loadButton.layer.shadowRadius = 5;
+    self.loadButton.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
+    
     self.loadButton.center = self.center;
     
     
