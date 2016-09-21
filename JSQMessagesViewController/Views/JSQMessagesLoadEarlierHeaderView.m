@@ -60,6 +60,14 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     [self.loadButton setTitle:[NSString stringWithFormat:@"\u25B2  %@",[NSBundle jsq_localizedStringForKey:@"load_earlier_messages"]] forState:UIControlStateNormal];
     
     [self.loadButton setBackgroundColor:[UIColor colorWithRed:93/255.0 green:159/255.0 blue:240/255.0 alpha:1]];
+    self.loadButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    
+    [self.loadButton sizeToFit];
+    
+    CGRect frame = self.loadButton.frame;
+    frame.size.width = frame.size.width + 20;
+    [self.loadButton setFrame:frame];
+    
     self.loadButton.layer.cornerRadius = self.loadButton.frame.size.height/2;
     
     [self.loadButton.layer setMasksToBounds:NO];
@@ -72,9 +80,7 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     self.loadButton.center = self.center;
     
     
-    self.loadButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     
-    [self.loadButton sizeToFit];
 }
 
 - (void)dealloc
