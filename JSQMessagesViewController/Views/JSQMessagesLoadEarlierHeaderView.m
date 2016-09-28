@@ -62,6 +62,8 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     
     [self.loadButton setTitle:[NSString stringWithFormat:@"%@",[NSBundle jsq_localizedStringForKey:@"load_earlier_messages"]] forState:UIControlStateNormal];
     
+    
+    
     [self.loadButton setBackgroundColor:[UIColor colorWithRed:86/255.0 green:192/255.0 blue:224/255.0 alpha:1]];
     
     [[self.loadButton titleLabel] setTextColor:[UIColor whiteColor]];
@@ -82,14 +84,14 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
     UIGraphicsEndImageContext();
     
     [self.loadButton setImage:newImage forState:UIControlStateNormal];
+    [self.loadButton.titleLabel setFont:[UIFont fontWithName:@"PTSans-Regular" size:16]];
+    [self.loadButton setImageEdgeInsets:UIEdgeInsetsMake(0, 10, 0, 20)];
     
-    [self.loadButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
-    [self.loadButton setTitleEdgeInsets:UIEdgeInsetsMake(10, 20, 10, 20)];
     
     [self.loadButton sizeToFit];
     
     CGRect frame = self.loadButton.frame;
-    frame.size.width = frame.size.width + 20;
+    frame.size.width = frame.size.width + 40;
     frame.size.height = 32;
     [self.loadButton setFrame:frame];
     
