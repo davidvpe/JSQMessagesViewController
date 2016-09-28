@@ -24,7 +24,7 @@
 #import <CoreText/CoreText.h>
 
 
-const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
+const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 51.0f;
 
 
 @interface JSQMessagesLoadEarlierHeaderView ()
