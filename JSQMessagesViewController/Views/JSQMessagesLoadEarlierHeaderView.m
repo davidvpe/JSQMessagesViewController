@@ -21,6 +21,8 @@
 
 #import "NSBundle+JSQMessages.h"
 
+#import <CoreText/CoreText.h>
+
 
 const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
 
@@ -50,6 +52,7 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
 
 #pragma mark - Initialization
 
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -57,25 +60,44 @@ const CGFloat kJSQMessagesLoadEarlierHeaderViewHeight = 63.0f;
 
     self.backgroundColor = [UIColor clearColor];// colorWithRed:93/255.0 green:159/255.0 blue:240/255.0 alpha:1];
     
-    [self.loadButton setTitle:[NSString stringWithFormat:@"\u25B2  %@",[NSBundle jsq_localizedStringForKey:@"load_earlier_messages"]] forState:UIControlStateNormal];
+    [self.loadButton setTitle:[NSString stringWithFormat:@"%@",[NSBundle jsq_localizedStringForKey:@"load_earlier_messages"]] forState:UIControlStateNormal];
     
-    [self.loadButton setBackgroundColor:[UIColor colorWithRed:93/255.0 green:159/255.0 blue:240/255.0 alpha:1]];
-    self.loadButton.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    [self.loadButton setBackgroundColor:[UIColor colorWithRed:86/255.0 green:192/255.0 blue:224/255.0 alpha:1]];
+    
+    [[self.loadButton titleLabel] setTextColor:[UIColor whiteColor]];
+    
+    
+    
+    NSBundle *bundle = [NSBundle jsq_messagesAssetBundle];
+    
+    NSString *imagePath = [bundle pathForResource:@"icBack@3x" ofType:@"png" inDirectory:@"Images"];
+
+    
+    UIImage *originalImage = [UIImage imageWithContentsOfFile:imagePath];
+    
+    CGSize size = originalImage.size;
+    UIGraphicsBeginImageContext(CGSizeMake(size.height, size.width));
+    [[UIImage imageWithCGImage:[originalImage CGImage] scale:1.0 orientation:UIImageOrientationRight] drawInRect:CGRectMake(0,0,size.height ,size.width)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self.loadButton setImage:newImage forState:UIControlStateNormal];
+    
+    [self.loadButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 20)];
+    [self.loadButton setTitleEdgeInsets:UIEdgeInsetsMake(10, 20, 10, 20)];
     
     [self.loadButton sizeToFit];
     
     CGRect frame = self.loadButton.frame;
     frame.size.width = frame.size.width + 20;
+    frame.size.height = 32;
     [self.loadButton setFrame:frame];
     
     self.loadButton.layer.cornerRadius = self.loadButton.frame.size.height/2;
     
     [self.loadButton.layer setMasksToBounds:NO];
     
-//    self.loadButton.layer.shadowColor = [UIColor blackColor].CGColor;
-//    self.loadButton.layer.shadowOpacity = 0.8;
-//    self.loadButton.layer.shadowRadius = 5;
-//    self.loadButton.layer.shadowOffset = CGSizeMake(0.0f, 4.0f);
+    
     
     self.loadButton.center = self.center;
     
