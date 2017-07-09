@@ -119,4 +119,11 @@
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView
                 header:(JSQMessagesLoadEarlierHeaderView *)headerView didTapLoadEarlierMessagesButton:(UIButton *)sender;
 
+/**
+ *  Notifies the delegate that the message bubble at the specified indexPath did receive a tap event on a link.
+ *
+ *  @param collectionView The collection view object that is notifying the delegate of the tap event.
+ *  @param urlString	  The URL of the link tapped on String
+ */
+- (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapLink:(NSString *)urlString;
 @end

@@ -182,4 +182,8 @@
                        withSender:sender];
 }
 
+-(void)messagesCollectionViewCellDidTapLink:(NSString *)link onCell:(JSQMessagesCollectionViewCell *)cell {
+	[self.delegate collectionView:self didTapLink:link];
+}
+
 @end

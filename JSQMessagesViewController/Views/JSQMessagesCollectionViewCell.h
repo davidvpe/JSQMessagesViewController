@@ -32,6 +32,13 @@
 @required
 
 /**
+ *  Tells the delegate that some link on the cell has been tapped.
+ *
+ *  @param cell The cell that received the tap touch event.
+ */
+- (void)messagesCollectionViewCellDidTapLink:(NSString *)link onCell:(JSQMessagesCollectionViewCell *)cell;
+
+/**
  *  Tells the delegate that the avatarImageView of the cell has been tapped.
  *
  *  @param cell The cell that received the tap touch event.
@@ -85,7 +92,7 @@
  *  @see JSQMessagesCollectionViewCellIncoming.
  *  @see JSQMessagesCollectionViewCellOutgoing.
  */
-@interface JSQMessagesCollectionViewCell : UICollectionViewCell
+@interface JSQMessagesCollectionViewCell : UICollectionViewCell<UITextViewDelegate>
 
 /**
  *  The object that acts as the delegate for the cell.

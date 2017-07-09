@@ -163,6 +163,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.textView.text = nil;
     self.textView.attributedText = nil;
+	self.textView.delegate = self;
 
     self.avatarImageView.image = nil;
     self.avatarImageView.highlightedImage = nil;
@@ -389,6 +390,14 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     }
     
     return NO;
+}
+
+-(BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
+	NSString* urlString = [URL absoluteString];
+	if(urlString){
+		[self.delegate messagesCollectionViewCellDidTapLink:urlString onCell:self];
+	}
+	return true;
 }
 
 @end
