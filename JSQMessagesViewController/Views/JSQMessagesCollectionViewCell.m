@@ -394,10 +394,12 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
 -(BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange {
 	NSString* urlString = [URL absoluteString];
-	if(urlString){
+	if(!urlString || ![[urlString substringToIndex:4] containsString:@"http"]){
+		return true;
+	} else {
 		[self.delegate messagesCollectionViewCellDidTapLink:urlString onCell:self];
 	}
-	return true;
+	return false;
 }
 
 @end
