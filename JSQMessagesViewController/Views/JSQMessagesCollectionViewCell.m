@@ -110,7 +110,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
     self.backgroundColor = [UIColor whiteColor];
-
+	self.textView.delegate = self;
     self.cellTopLabelHeightConstraint.constant = 0.0f;
     self.messageBubbleTopLabelHeightConstraint.constant = 0.0f;
     self.cellBottomLabelHeightConstraint.constant = 0.0f;
@@ -163,7 +163,6 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.textView.dataDetectorTypes = UIDataDetectorTypeNone;
     self.textView.text = nil;
     self.textView.attributedText = nil;
-	self.textView.delegate = self;
 
     self.avatarImageView.image = nil;
     self.avatarImageView.highlightedImage = nil;
